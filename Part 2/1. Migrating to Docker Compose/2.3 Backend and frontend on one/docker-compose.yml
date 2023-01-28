@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  backend:
+    image: backend-env
+    build: ./backend
+    ports:
+      - 8080:8080
+  frontend:
+    image: frontend-env
+    build: ./frontend
+    ports:
+      - 5000:5000
