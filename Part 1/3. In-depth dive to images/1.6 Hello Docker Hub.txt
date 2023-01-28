@@ -1,0 +1,10 @@
+Command used:
+docker run -it devopsdockeruh/pull_exercise
+
+Docker Hub webpage of the image:
+https://hub.docker.com/r/devopsdockeruh/pull_exercise
+
+Output:
+Give me the password: basics
+You found the correct password. Secret message is:
+"This is the secret message"
