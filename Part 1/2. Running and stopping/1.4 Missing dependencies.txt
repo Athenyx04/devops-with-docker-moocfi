@@ -1,0 +1,38 @@
+Commands used:
+docker run -it -d --name dependencies ubuntu sh -c 'echo "Input website:"; read website; echo "Searching..."; sleep 1; curl http://$website;'
+To create the container
+
+docker exec -it dependencies bash
+To enter the CLI
+
+apt-get update && apt-get -y upgrade
+To update the packages list
+
+apt-get -y install curl
+To install curl
+
+exit
+To exit the CLI
+
+docker attach dependencies
+To attach the running container to the terminal
+
+helsinki.fi
+As our test webpage
+
+The output being:
+Searching...
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx/1.20.1</center>
+</body>
+</html>
+
+An smarter approach would be to use this line directly after creating the container:
+docker exec dependencies sh -c 'apt-get update && apt-get -y upgrade && apt-get -y install curl' so we don't have to enter the CLI
+
+An even smarter approach would be to attach it to the beginning of the command when creating the container, like so:
+docker run -it --name dependencies ubuntu sh -c 'apt-get update && apt-get -y upgrade && apt-get -y install curl; echo "Input website:"; read website; echo "Searching..."; sleep 1; curl http://$website;'
+This way it is not necessary to make it detachable and runs continuously
