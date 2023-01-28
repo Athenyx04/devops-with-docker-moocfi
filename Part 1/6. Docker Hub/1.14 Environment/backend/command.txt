@@ -1,0 +1,2 @@
+Command used:
+docker build . -t backend-env && docker run -p 8080:8080 backend-env

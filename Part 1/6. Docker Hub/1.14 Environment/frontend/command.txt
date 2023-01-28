@@ -1,0 +1,2 @@
+Command used:
+docker build . -t frontend-env && docker run -p 5000:5000 frontend-env
